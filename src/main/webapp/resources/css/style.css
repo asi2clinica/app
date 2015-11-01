@@ -1,0 +1,15 @@
+.navbar-brand img{
+	height: 60px !important;
+}
+
+.navbar{
+	min-height: 80px !important; 
+}
+
+.top-op{
+	margin-top: 15px;
+}
+
+.navbar {
+    background-color: #22639A;
+}
