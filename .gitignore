@@ -45,6 +45,11 @@ nbproject
 .project
 .settings
 composer.lock
+.classpath
+.tern-project
+
+
+
 
 # MAVEN files #
 #############
