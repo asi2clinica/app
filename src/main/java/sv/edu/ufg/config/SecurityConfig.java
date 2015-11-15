@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		
-	  auth.jdbcAuthentication().dataSource(dataSource)//.passwordEncoder(passwordEncoder())
+	  auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder())
 		.usersByUsernameQuery(
 			"select usuario username, clave password, activo enabled from vw_user where usuario = ?")
 		.authoritiesByUsernameQuery(
