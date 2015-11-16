@@ -1,6 +1,6 @@
 package sv.edu.ufg.controllers;
 
-import org.apache.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +19,7 @@ import sv.edu.ufg.service.TipoPacienteService;
 public class PacienteController {
 	
 	
-	Logger logger = Logger.getLogger(PacienteController.class);
+	//Logger logger = Logger.getLogger(PacienteController.class);
 
 	@Autowired PersonaService  personaService;
 	@Autowired PacienteService pacienteService;

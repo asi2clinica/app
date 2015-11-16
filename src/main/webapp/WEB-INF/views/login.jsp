@@ -1,16 +1,21 @@
      
 <%@ taglib prefix="spring"  uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" 		uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec"     uri="http://www.springframework.org/security/tags" %>
 <%@ page session="true"  %>
 
 <jsp:include page="template/login/head.jsp" />
+
+<sec:authorize access="hasAnyRole('USER,ADMIN')">
+ 		<%response.sendRedirect(request.getContextPath()+"/home"); %>
+</sec:authorize>
+	
 	
 <div class="container">
 	<div class="col-sm-12 ">
 		<div class="panel panel-primary" >
 			<div  class="panel-body">
 					<div class="col-sm-4 col-md-4" >
-						
 					</div>
 					
 					<form id="loginform" class="col-sm-4 col-md-4"  role="form" name='loginForm' 

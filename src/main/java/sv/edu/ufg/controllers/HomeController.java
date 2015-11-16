@@ -12,13 +12,12 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-		return "home";
+		return "login";
 
 	}
 
-	@RequestMapping(value = "/app", method = RequestMethod.GET)
+	@RequestMapping(value = {"/app","/home"}, method = RequestMethod.GET)
 	public String hello(ModelMap model) {
-
 		return "home";
 	}
 

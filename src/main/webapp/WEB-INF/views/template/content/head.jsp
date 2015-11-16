@@ -8,26 +8,10 @@
 	<meta charset="utf-8" />
     	<title>Sistema Clinico Dental</title>
     	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        
-	<link href='<spring:url value="/resources/assets/bootstrap/css/bootstrap.min.css" />' rel="stylesheet" />		
-	<link href="<spring:url value="/resources/assets/bootstrap/css/bootstrap-responsive.min.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap/css/bootstrap-fileupload.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/font-awesome/css/font-awesome.css" />" rel="stylesheet" />
-        <link href='<spring:url value="/resources/css/style.css" />' rel="stylesheet" />
-        <link href='<spring:url value="/resources/css/style-responsive.css" />' rel="stylesheet" />
-        <link href='<spring:url value="/resources/css/style-default.css" />' rel="stylesheet" />
-        <link href='<spring:url value="/resources/css/jquery.dataTables.min.css" />' rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/fancybox/jquery.fancybox.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/uniform/css/uniform.default.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/chosen-bootstrap/chosen/chosen.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/jquery-tags-input/jquery.tagsinput.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/clockface/css/clockface.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap-datepicker/css/datepicker.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap-timepicker/compiled/timepicker.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap-colorpicker/css/colorpicker.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />" rel="stylesheet" />
-        <link href="<spring:url value="/resources/assets/bootstrap-daterangepicker/daterangepicker.css" />" rel="stylesheet" />
+		<link href='<spring:url value="/resources/assets/bootstrap/css/bootstrap.min.css" />' 				rel="stylesheet" />		
+		<link href="<spring:url value="/resources/assets/bootstrap/css/bootstrap-responsive.min.css" />" 	rel="stylesheet" />
+        <link href='<spring:url value="/resources/css/style.css" />' 										rel="stylesheet" />
+
     </head>
 	<body>
         <div id="header" class="navbar navbar-inverse navbar-fixed-top">
@@ -83,7 +67,7 @@
                <!-- BEGIN SIDEBAR MENU -->
                     <div id="navslider" style="width:100%; background: #fff;">
                             <div id='cssmenu'>
-                            <sec:authorize access="hasRole('USER')">
+                            <sec:authorize access="hasAnyRole('USER,ADMIN')">
                                     <ul>
                                             <li><a href='index.html'>Inicio</a></li>
                                             <li class='active has-sub'><a href='#'>Registro</a>
