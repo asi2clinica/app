@@ -4,6 +4,7 @@ package sv.edu.ufg.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,9 +18,7 @@ import sv.edu.ufg.service.TipoPacienteService;
 @Controller
 @RequestMapping(value="/app/paciente",method=RequestMethod.GET)
 public class PacienteController {
-	
-	
-	//Logger logger = Logger.getLogger(PacienteController.class);
+
 
 	@Autowired PersonaService  personaService;
 	@Autowired PacienteService pacienteService;
@@ -29,6 +28,32 @@ public class PacienteController {
 	public ModelAndView list(){
 		return model();
 	}
+	
+	
+	@RequestMapping(value="view/{id}",method=RequestMethod.GET)
+	public ModelAndView view(@PathVariable("id") int id){
+		ModelAndView model = model();
+		model.setViewName("paciente/view");
+		model.addObject("paciente", pacienteService.find(id));
+		return model;
+	}
+	
+	@RequestMapping(value="update/{id}",method=RequestMethod.GET)
+	public ModelAndView update(@PathVariable("id") int id){
+		ModelAndView model = model();
+		model.setViewName("paciente/edit");
+		model.addObject("paciente", pacienteService.find(id));
+		return model;
+	}
+	
+	@RequestMapping(value="delete/{id}",method=RequestMethod.GET)
+	public ModelAndView delete(@PathVariable("id") int id){
+		ModelAndView model = model();
+		model.setViewName("paciente/delete");
+		model.addObject("paciente", pacienteService.find(id));
+		return model;
+	}
+	
 	
 	
 	@RequestMapping(value="/create",method=RequestMethod.GET)

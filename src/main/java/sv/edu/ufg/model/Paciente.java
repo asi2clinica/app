@@ -17,30 +17,28 @@ public class Paciente implements Serializable {
 	@Id
 	@SequenceGenerator(name="PACIENTE_ID_GENERATOR", sequenceName="SEQ_PACIENTE")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PACIENTE_ID_GENERATOR")
-	private long id;
+	private int id;
 
-	//bi-directional many-to-one association to Cita
+	
 	@OneToMany(mappedBy="paciente")
 	private List<Cita> citas;
 
-	//bi-directional many-to-one association to Persona
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="PERSONA")
 	private Persona persona;
 
-	//bi-directional many-to-one association to TipoPaciente
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="TIPO_PACIENTE")
 	private TipoPaciente tipoPaciente;
 
 	public Paciente() {
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

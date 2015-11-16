@@ -20,12 +20,12 @@ public class DocumentoPersona implements Serializable {
 	private long id;
 
 	//bi-directional many-to-one association to Persona
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="PERSONA")
 	private Persona persona;
 
 	//bi-directional many-to-one association to TipoDocumento
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="TIPO_DOCUMENTO")
 	private TipoDocumento tipoDocumento;
 

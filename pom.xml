@@ -12,7 +12,7 @@
 		<jstl.version>1.2</jstl.version>
 		<spring.security.version>3.2.8.RELEASE</spring.security.version>
 		<servletapi.version>3.1.0</servletapi.version>
-		<hibernate.version>4.2.11.Final</hibernate.version>
+		<hibernate.version>4.2.7.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -120,7 +120,12 @@
 		    <version>1.1.0.Final</version>
 		</dependency>
 
-
+		
+		<dependency>
+    		<groupId>org.javassist</groupId>
+    		<artifactId>javassist</artifactId>
+    		<version>3.20.0-GA</version> 
+		</dependency>
 
 		<!-- Jasspert dependecies -->
 		<dependency>

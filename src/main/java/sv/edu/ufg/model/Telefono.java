@@ -21,7 +21,7 @@ public class Telefono implements Serializable {
 	private String telefono;
 
 	//bi-directional many-to-one association to Persona
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="PERSONA")
 	private Persona persona;
 
