@@ -17,7 +17,7 @@ public class Rol implements Serializable {
 	@Id
 	@SequenceGenerator(name="ROL_ID_GENERATOR", sequenceName="SEQ_ROL")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ROL_ID_GENERATOR")
-	private long id;
+	private int id;
 
 	private String activo;
 
@@ -30,11 +30,11 @@ public class Rol implements Serializable {
 	public Rol() {
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
