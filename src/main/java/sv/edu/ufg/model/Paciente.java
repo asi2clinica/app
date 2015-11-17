@@ -20,7 +20,7 @@ public class Paciente implements Serializable {
 	private int id;
 
 	
-	@OneToMany(mappedBy="paciente")
+	@OneToMany(mappedBy="paciente",fetch=FetchType.EAGER)
 	private List<Cita> citas;
 
 	@ManyToOne(fetch=FetchType.EAGER)

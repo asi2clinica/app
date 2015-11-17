@@ -3,7 +3,6 @@ package sv.edu.ufg.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import sv.edu.ufg.model.Paciente;
 import sv.edu.ufg.model.Persona;
 import sv.edu.ufg.service.PacienteService;
-import sv.edu.ufg.service.PersonaService;
 import sv.edu.ufg.service.TipoPacienteService;
 
 @Controller
@@ -20,7 +18,7 @@ import sv.edu.ufg.service.TipoPacienteService;
 public class PacienteController {
 
 
-	@Autowired PersonaService  personaService;
+	//@Autowired PersonaService  personaService;
 	@Autowired PacienteService pacienteService;
 	@Autowired TipoPacienteService tipoPacienteService;
 	
@@ -54,6 +52,13 @@ public class PacienteController {
 		return model;
 	}
 	
+	@RequestMapping(value="save",method=RequestMethod.GET)
+	public ModelAndView save(@PathVariable("id") int id){
+		ModelAndView model = model();
+		model.setViewName("paciente/view");
+		model.addObject("paciente", pacienteService.find(id));
+		return model;
+	}
 	
 	
 	@RequestMapping(value="/create",method=RequestMethod.GET)
@@ -63,14 +68,14 @@ public class PacienteController {
 		return model;
 	}
 	
-	
+	/*
 	@RequestMapping(value="/save",method=RequestMethod.GET)
 	public ModelAndView save(@ModelAttribute("paciente") Paciente paciente){
 		ModelAndView model = model();
 		model.setViewName("paciente/view");
 		return model;
 	}
-	
+	*/
 	
 	
 	

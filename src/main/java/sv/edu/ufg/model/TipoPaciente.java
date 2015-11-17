@@ -2,6 +2,9 @@ package sv.edu.ufg.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -24,8 +27,8 @@ public class TipoPaciente implements Serializable {
 
 	private String tipo;
 
-	//bi-directional many-to-one association to Paciente
-	@OneToMany(mappedBy="tipoPaciente")
+	
+	@OneToMany(mappedBy="tipoPaciente",fetch=FetchType.EAGER) @JsonIgnore
 	private List<Paciente> pacientes;
 
 	public TipoPaciente() {

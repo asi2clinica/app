@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import sv.edu.ufg.dao.TipoPacienteDao;
+import sv.edu.ufg.model.TipoPaciente;
 
 @Service
 @Transactional
@@ -14,23 +15,24 @@ public class TipoPacienteServiceImpl implements TipoPacienteService {
 
 	@Autowired TipoPacienteDao tipoPacienteDao;
 	
-	public void create(Object r) {
-		tipoPacienteDao.create(r);
+
+	public void create(TipoPaciente r) {
+		tipoPacienteDao.create(r);	
 	}
 
-	public void update(Object r) {
+	public void update(TipoPaciente r) {
 		tipoPacienteDao.update(r);
 	}
 
-	public void delete(Object r) {
+	public void delete(TipoPaciente r) {
 		tipoPacienteDao.delete(r);
 	}
 
-	public Object find(int id) {
+	public TipoPaciente find(int id) {
 		return tipoPacienteDao.find(id);
 	}
 
-	public List<Object> findAll() {
+	public List<TipoPaciente> findAll() {
 		return tipoPacienteDao.findAll();
 	}
 

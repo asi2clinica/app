@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import sv.edu.ufg.model.TipoPaciente;
 import sv.edu.ufg.service.TipoPacienteService;
 
 /**
@@ -25,7 +27,7 @@ public class TipoPacienteController {
     @Autowired TipoPacienteService tipoPacienteService;
     
     @RequestMapping(value = "/json",method = RequestMethod.GET)
-    public @ResponseBody  List<Object> jsonTipoPaciente(){
+    public @ResponseBody  List<TipoPaciente> jsonTipoPaciente(){
         return tipoPacienteService.findAll();
     }
 
