@@ -23,12 +23,12 @@ public class FormaPagoCuota implements Serializable {
 	private BigDecimal monto;
 
 	//bi-directional many-to-one association to FormaPago
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="FORMA_PAGO_ID")
 	private FormaPago formaPago;
 
 	//bi-directional many-to-one association to Pago
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="PAGOS_ID")
 	private Pago pago;
 
