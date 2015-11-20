@@ -18,7 +18,7 @@ public class Servicio implements Serializable {
 	@Id
 	@SequenceGenerator(name="SERVICIO_ID_GENERATOR", sequenceName="SEQ_SERVICIO")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SERVICIO_ID_GENERATOR")
-	private int id;
+	private long id;
 
 	private String estado;
 
@@ -26,18 +26,18 @@ public class Servicio implements Serializable {
 
 	private BigDecimal precio;
 
-	//bi-directional many-to-one association to Cita
-	@OneToMany(mappedBy="servicio")
-	private List<Cita> citas;
+	//bi-directional many-to-one association to ServicioCita
+	@OneToMany(mappedBy="servicio", fetch=FetchType.EAGER)
+	private List<ServicioCita> servicioCitas;
 
 	public Servicio() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -65,26 +65,26 @@ public class Servicio implements Serializable {
 		this.precio = precio;
 	}
 
-	public List<Cita> getCitas() {
-		return this.citas;
+	public List<ServicioCita> getServicioCitas() {
+		return this.servicioCitas;
 	}
 
-	public void setCitas(List<Cita> citas) {
-		this.citas = citas;
+	public void setServicioCitas(List<ServicioCita> servicioCitas) {
+		this.servicioCitas = servicioCitas;
 	}
 
-	public Cita addCita(Cita cita) {
-		getCitas().add(cita);
-		cita.setServicio(this);
+	public ServicioCita addServicioCita(ServicioCita servicioCita) {
+		getServicioCitas().add(servicioCita);
+		servicioCita.setServicio(this);
 
-		return cita;
+		return servicioCita;
 	}
 
-	public Cita removeCita(Cita cita) {
-		getCitas().remove(cita);
-		cita.setServicio(null);
+	public ServicioCita removeServicioCita(ServicioCita servicioCita) {
+		getServicioCitas().remove(servicioCita);
+		servicioCita.setServicio(null);
 
-		return cita;
+		return servicioCita;
 	}
 
 }
