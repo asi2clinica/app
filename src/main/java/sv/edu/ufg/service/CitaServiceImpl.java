@@ -11,7 +11,7 @@ import sv.edu.ufg.model.Cita;
 
 @Service
 @Transactional
-public class CitaServiceImpl implements CitaDao{
+public class CitaServiceImpl implements CitaService{
 
 	
 	@Autowired CitaDao citaDao;
@@ -34,6 +34,10 @@ public class CitaServiceImpl implements CitaDao{
 
 	public List<Cita> findAll() {
 		return citaDao.findAll();
+	}
+
+	public List<Cita> findByEstado() {
+		return citaDao.findByEstado();
 	}
 
 }

@@ -16,21 +16,19 @@ public class FacturaServiceImpl  implements FacturaService{
 
   
   	 @Autowired FacturaDao facturaDao;
-  
-  
-    public void create(Factura arg0) {
+  	 public void create(Factura arg0) {
         facturaDao.create(arg0);
-    }
+  	 }
 
   
-    public void delete(Factura arg0) {
+  	 public void delete(Factura arg0) {
         facturaDao.delete(arg0);
-    }
+  	 }
 
   
-    public Factura find(int arg0) {
+  	 public Factura find(int arg0) {
         return facturaDao.find(arg0);
-    }
+  	 }
 
   
     public List<Factura> findAll() {
