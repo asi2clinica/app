@@ -50,6 +50,7 @@ public class PacienteController {
 		ModelAndView model = model();
 		model.setViewName("paciente/view");
 		model.addObject("paciente", pacienteService.find(id));
+                model.addObject("tipopaciente", tipoPacienteService.find(id));
 		return model;
 	}
 	
