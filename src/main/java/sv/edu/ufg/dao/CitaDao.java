@@ -10,4 +10,5 @@ public interface CitaDao {
 	public void delete(Cita r);
 	public Cita find(int id);
 	public List<Cita> findAll();
+	public List<Cita> findByEstado();
 }

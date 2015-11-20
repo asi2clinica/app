@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class FacturaDaoImpl implements FacturaDao{
 
-  	 @Autowired SessionFactory sessionFactory;
+  	@Autowired SessionFactory sessionFactory;
   
     public void create(Factura arg0) {
   		        get().saveOrUpdate(arg0);

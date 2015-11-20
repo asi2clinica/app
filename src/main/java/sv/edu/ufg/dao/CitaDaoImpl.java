@@ -2,6 +2,7 @@ package sv.edu.ufg.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,12 @@ public class CitaDaoImpl implements CitaDao{
 	@SuppressWarnings("unchecked")
 	public List<Cita> findAll() {
 		return sessionFactory.getCurrentSession().createCriteria(Cita.class).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Cita> findByEstado() {
+		Query query =  sessionFactory.getCurrentSession().getNamedQuery("Cita.findByEstado");
+		return query.list();
 	}
 
 }
