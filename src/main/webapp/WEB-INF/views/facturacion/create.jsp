@@ -4,73 +4,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../template/content/head.jsp" />
 
-	<form:form action='<c:url value="/app/facturacion/create"  />' method="post" modelAttribute="factura" >
+	<c:url var="action" value="/app/facturacion/create" />
+	
+	<form:form method="post" modelAttribute="factura" action="${action}" >
 		<h3>Nueva Factura</h3>
 		<div class="row" >
             Forma de Pago: <label id="forma"></label>
-            <input type="button" value="Forma de Pago" data-toggle="modal" data-target="#formPagoDlg" >
-            <form:hidden path="formaId"  />
+            <form:select path="formaId" cssClass="form-control">
+            	<c:forEach items="${formas}" var="item">
+            			 <form:option value="${item.id}">${item.descipcion}</form:option> 	
+		         </c:forEach>  
+            </form:select> 
 		</div>
 		<div class="row" >
 			Cliente: 	
-         	<form:hidden path="cliente" cssClass="form-control"   />
-         	<BR />
-         	Cita:<label id="cita"></label> 	
-         	<input type="button" value="cita" data-toggle="modal" data-target="#myModal" >
-         	<form:hidden  path="citaId"  />
+         	<form:input path="cliente" cssClass="form-control"   />
+         	Cita:
+         	<form:select path="citaId" cssClass="form-control">
+            	 <c:forEach items="${citas}" var="item">
+            			<form:option value="${item.id}">${item.paciente.persona.nombre}</form:option>
+		         </c:forEach>  
+            </form:select>  	         
 		</div>
-		<input type="submit" value="Guardar" >
+		<BR />
+		<input type="submit" value="Guardar" class="btn" >
 	</form:form>
-		
-	<!-- 		
-		
-	<div class="clear">
-	</div>
 	
-	<div class="row">
-	<ul class="nav nav-tabs">
-  		<li class="active"><a data-toggle="tab" href="#home">Detalles</a></li>
-  		<li><a data-toggle="tab" href="#menu3">Pagos</a></li>
-	</ul>
 
-	<div class="tab-content">
-	  <div id="home" class="tab-pane fade in active">
-	    <h3>Detalles</h3>
-	   
-	    
-	    
-	    
-	  </div>
-	   
-	  <div id="menu1" class="tab-pane fade">
-	    <h3>Formas de Pago</h3>
-	    
-	  </div>
-	  
-	   	  
-	  <div id="menu3" class="tab-pane fade">
-	    <h3>Pagos</h3>
-	    <p>
-         
-       </p>
-	  </div>
-	  
-	</div>
-	</div>
-	-->
-	
-	
-	
-	<!-- 
-	FILTRAR LAS CITAS
-	 -->
-	 
-	 <!-- 
-	 	<jsp:include page="citaFiltro.jsp" />
-	 	<jsp:include page="formaFiltro.jsp" />
-	  -->
-	 
-		
 <jsp:include page="../template/content/foot.jsp" />
 
 

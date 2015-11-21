@@ -26,7 +26,7 @@ public class FacturaServiceImpl  implements FacturaService{
   	 }
 
   
-  	 public Factura find(int arg0) {
+  	 public Factura find(long arg0) {
         return facturaDao.find(arg0);
   	 }
 

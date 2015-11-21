@@ -34,7 +34,7 @@ public class Factura implements Serializable {
 	private Date fecha;
 
 	//bi-directional many-to-one association to DetalleFactua
-	@OneToMany(mappedBy="factura")
+	@OneToMany(mappedBy="factura",fetch=FetchType.EAGER)
 	private List<DetalleFactua> detalleFactuas;
 
 	//bi-directional many-to-one association to Cita

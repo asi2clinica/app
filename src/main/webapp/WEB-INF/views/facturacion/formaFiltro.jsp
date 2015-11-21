@@ -30,7 +30,7 @@
 		          <c:set var="cnt1" value="0" />
 		          <c:forEach items="${formas}" var="item">
 		                 <c:set var="cnt1" value="${cnt1 + 1}" />
-		                 <tr  pk="${item.id}" >
+		                 <tr class="forma" pk="${item.id}" name="${item.descipcion}" >
 		                        <td style="min-width: 70px"> ${cnt1} </td>
 		                        <td style="min-width: 400px"> ${item.descipcion}</td>
 		                    </tr>  

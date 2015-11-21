@@ -23,7 +23,7 @@ public class FacturaDaoImpl implements FacturaDao{
     }
 
     
-    public Factura find(int arg0) {
+    public Factura find(long arg0) {
         return (Factura) get().get(Factura.class,arg0);
     }
 

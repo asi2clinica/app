@@ -1,6 +1,8 @@
 package sv.edu.ufg.controllers;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import sv.edu.ufg.model.Factura;
+import sv.edu.ufg.model.FormaFactura;
+import sv.edu.ufg.model.FormaPago;
 import sv.edu.ufg.service.CitaService;
 import sv.edu.ufg.service.FacturaService;
+import sv.edu.ufg.service.FormaFacturaService;
 import sv.edu.ufg.service.FormaService;
 
 
@@ -29,6 +34,7 @@ public class FacturacionController implements Serializable{
   		@Autowired   FacturaService facturaService;
   		@Autowired   CitaService    citaService;
   		@Autowired   FormaService   formaService;
+  		@Autowired   FormaFacturaService formaFacturaService;
   
   		@RequestMapping(method=RequestMethod.GET)
   		public ModelAndView list(){    	  
@@ -40,7 +46,32 @@ public class FacturacionController implements Serializable{
   			ModelAndView model = model();
   			model.setViewName("facturacion/create");
   			return model;
-  		}	
+  		}
+  		
+  		
+  		@RequestMapping(value={"/create"},method=RequestMethod.POST)
+  		public String createNew(@ModelAttribute("factura") Factura factura){
+  			try{
+  			factura.setEstado("E");
+  			factura.setCredito("N");
+  			factura.setCuotas(new BigDecimal(0));
+  			factura.setFecha(new Date());
+  			FormaFactura formaFactura = new FormaFactura(); formaFactura.setMonto(new BigDecimal(0));
+  			formaFactura.setFactura(factura);
+  			formaFactura.setFormaPago(formaService.find(factura.getFormaId()));
+  			factura.setCita(citaService.find(factura.getCitaId()));
+  			
+  			
+  			facturaService.create(factura);
+  			//formaFacturaService.create(formaFactura);
+  			factura.addFormaFactura(formaFactura);
+  			//facturaService.create(factura);
+  			}catch(NullPointerException e){
+  				
+  			}return "redirect:/app/facturacion/view/"+factura.getId() ;
+  			
+  		}
+  		
   
   		@RequestMapping(value={"/update/{id}"},method=RequestMethod.GET)
   		public ModelAndView create(@PathVariable("id") int id){
@@ -62,11 +93,21 @@ public class FacturacionController implements Serializable{
         			return model();
   		}	
   		
+  		@RequestMapping(value={"/view/{id}"},method=RequestMethod.GET)
+  		public ModelAndView view(@PathVariable("id") int id){
+  					ModelAndView model = model();
+  					model.setViewName("facturacion/view");
+  					model.addObject("factura", facturaService.find(id));
+  					
+  					return model;
+  		}
+  		
+  		
   		public ModelAndView model(){
   			ModelAndView model = new ModelAndView("facturacion/list");
   			model.addObject("facturas", facturaService.findAll());
   			model.addObject("factura" , new Factura());
-  			model.addObject("citas"	  , citaService.findByEstado());
+  			model.addObject("citas"	  , citaService.findAll());
   			model.addObject("formas"  , formaService.findAll());
   			return model;
   		}

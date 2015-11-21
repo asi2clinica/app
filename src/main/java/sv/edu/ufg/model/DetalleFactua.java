@@ -28,7 +28,7 @@ public class DetalleFactua implements Serializable {
 	private BigDecimal precio;
 
 	//bi-directional many-to-one association to Factura
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="FACURA_ID")
 	private Factura factura;
 

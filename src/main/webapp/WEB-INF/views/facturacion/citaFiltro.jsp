@@ -6,7 +6,7 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="citaModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -27,8 +27,8 @@
           	</thead>  
         		<tbody>		
 		          <c:forEach items="${citas}" var="item">
-		                 <c:set var="cnt1" value="${cnt1 + 1}" />
-		                 <tr  pk="${item.id}" >
+		                 <c:set var="cnt1" value="${cnt1 + 1}"  />
+		                 <tr class="cita"  pk="${item.id}" name="${item.paciente.persona.nombre}" >
 		                        <td style="min-width: 70px"> ${cnt1} </td>
 		                        <td style="min-width: 400px"> ${item.paciente.persona.nombre}</td>
 		                    </tr>  

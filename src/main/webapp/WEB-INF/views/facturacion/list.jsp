@@ -13,9 +13,8 @@
         <thead>
             <tr>
                 <td>No</td>
-                <td>Paciente</td>
+                <td>Cliente</td>
                 <td>Fecha</td>
-                <td>Monto</td>   
                 <td>...</td>  
             </tr>
         </thead>
@@ -24,9 +23,8 @@
     		  		<c:set var="cnt" value="${cnt + 1}" />
     				<tr  view='<c:url value="/app/facturacion/view/${item.id}" />' >
 		                <td> ${cnt} </td>
+		                <td> ${item.cliente}</td>
 		                <td> ${item.fecha}</td>
-		                <td> ${item.estaddo}</td>
-		                <td> ${item.estado}</td>
 		                <td>
 		                	<a class='btn btn-danger' href='<c:url value="/app/facturacion/delete/" />${item.id}' >
 		                		<i class='ui-icon ui-icon-trash' ></i>

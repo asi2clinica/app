@@ -7,6 +7,6 @@ public interface FacturaService {
   	public void create(Factura r);
 	public void update(Factura r);
 	public void delete(Factura r);
-	public Factura find(int id);
+	public Factura find(long id);
 	public List<Factura> findAll();
 }
