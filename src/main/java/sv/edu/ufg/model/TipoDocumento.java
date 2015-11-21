@@ -18,7 +18,7 @@ public class TipoDocumento implements Serializable {
 	@Id
 	@SequenceGenerator(name="TIPO_DOCUMENTO_ID_GENERATOR", sequenceName="SEQ_TIPO_DOCUMENTO")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TIPO_DOCUMENTO_ID_GENERATOR")
-	private long id;
+	private int  id;
 
 	private String activo;
 
@@ -31,11 +31,11 @@ public class TipoDocumento implements Serializable {
 	public TipoDocumento() {
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -76,5 +76,7 @@ public class TipoDocumento implements Serializable {
 
 		return documentoPersona;
 	}
+
+    
 
 }

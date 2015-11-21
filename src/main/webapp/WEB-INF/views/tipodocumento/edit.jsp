@@ -6,14 +6,16 @@
 <jsp:include page="../template/content/head.jsp" />
 	
 	<c:set var="cnt" value="0" />
-	<h3>Pregunta</h3>
+	<h3>Documento</h3>
 	
-	<c:url var="action" value="/app/pregunta/save/update" />
-	<form:form action="${action}" method="post" modelAttribute="pregunta" >
+	<c:url var="action" value="/app/tipodocumento/save/update" />
+	<form:form action="${action}" method="post" modelAttribute="tipodocumento" >
      
-            Descripcion de la pregunta: <form:input path="descripcion" cssClass="form-control" /><BR />
-            <form:hidden path="id" value="${id}" /><BR />
-            <input type="submit" value="Guardar" /> 
+		  Nombre Tipo Documento:<form:input path="documento" value="${documento}" cssClass="form-control" /><BR />
+		  
+                <form:hidden path="id" value="${id}" /><BR />
+                <form:hidden path="activo" value="${activo}" /><BR />
+     		  <input type="submit" /> 
 		  
 	</form:form>		
 	
