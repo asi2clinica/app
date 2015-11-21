@@ -11,7 +11,7 @@
 	  Nombre<form:input 	path="nombre" 			type="text" 		cssClass="form-control"/>
      email<form:input 	path="email" 			type="text" 		cssClass="form-control"/>
      Direccion<form:input 	path="direccion" 			type="text" 		cssClass="form-control"/>
-      Estado<form:input 	path="estado" 			type="text" 		cssClass="form-control"/>
+      <form:hidden 	path="estado" 		value="S"	type="text" 		cssClass="form-control"/>
       Telefono<form:input 	path="telefono" 			type="text" 		cssClass="form-control"/>
      
 	<form:hidden 	path="id" />         

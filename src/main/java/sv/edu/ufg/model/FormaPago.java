@@ -18,7 +18,7 @@ public class FormaPago implements Serializable {
 	@Id
 	@SequenceGenerator(name="FORMA_PAGO_ID_GENERATOR", sequenceName="SEQ_FORMA_PAGO")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="FORMA_PAGO_ID_GENERATOR")
-	private long id;
+	private int id;
 
 	private String activo;
 
@@ -35,11 +35,11 @@ public class FormaPago implements Serializable {
 	public FormaPago() {
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

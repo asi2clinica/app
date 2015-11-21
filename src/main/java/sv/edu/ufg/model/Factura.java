@@ -24,7 +24,10 @@ public class Factura implements Serializable {
 	private String credito;
 
 	private BigDecimal cuotas;
-
+	
+	private String telefono;
+	private String cliente;
+	
 	private String estado;
 
 	@Temporal(TemporalType.DATE)
@@ -188,6 +191,22 @@ public class Factura implements Serializable {
 		pago.setFactura(null);
 
 		return pago;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
 	}
 
 }

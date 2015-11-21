@@ -14,7 +14,6 @@
                 <td>Nombre</td>
                 <td>E-mail</td>
                 <td>Direccion</td>
-                <td>Estado</td>
                 <td>Telefono</td>  
                 <td>...</td>  
             </tr>
@@ -27,7 +26,6 @@
 		                <td> ${item.nombre}</td>
 		                <td> ${item.email}</td>
 		                <td> ${item.direccion}</td>
-                      <td> ${item.estado}</td>
                       <td> ${item.telefono}</td>
 		                <td>
 		                	<a class='btn btn-danger' href='<c:url value="/app/sucursal/delete/" />${item.id}' >

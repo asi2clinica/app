@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import sv.edu.ufg.model.Factura;
 import sv.edu.ufg.service.CitaService;
 import sv.edu.ufg.service.FacturaService;
+import sv.edu.ufg.service.FormaService;
 
 
 @Controller
@@ -27,6 +28,7 @@ public class FacturacionController implements Serializable{
 	
   		@Autowired   FacturaService facturaService;
   		@Autowired   CitaService    citaService;
+  		@Autowired   FormaService   formaService;
   
   		@RequestMapping(method=RequestMethod.GET)
   		public ModelAndView list(){    	  
@@ -65,6 +67,10 @@ public class FacturacionController implements Serializable{
   			model.addObject("facturas", facturaService.findAll());
   			model.addObject("factura" , new Factura());
   			model.addObject("citas"	  , citaService.findByEstado());
-        return model;
-      }
+  			model.addObject("formas"  , formaService.findAll());
+  			return model;
+  		}
+  		
+  		
+  		
 }

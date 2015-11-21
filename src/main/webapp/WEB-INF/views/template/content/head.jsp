@@ -54,6 +54,10 @@
                     <li><a href="<c:url value='/app/cita' />"		>Citas</a></li>
                     <li><a href="<c:url value='/app/facturacion' />">Facturaci&oacute;n</a></li>
                     <li><a href="<c:url value='/app/inventario' />"	>Inventario</a></li>
+                    <li>Catalogos</li>
+                    <li><a href="<c:url value='/app/forma' />"	>Formas de Pago</a></li>
+                    <li><a href="<c:url value='/app/sucursal' />"	>Sucrusales</a></li>
+                    <li><a href="<c:url value='/app/roles' />"	>Roles</a></li>
                 </ul>
             </div>
             <div class="col-sm-10 col-sm-offset-3 col-md-10 col-md-offset-2 main">
