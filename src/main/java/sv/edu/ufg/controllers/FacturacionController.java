@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import sv.edu.ufg.model.Cita;
 import sv.edu.ufg.model.Factura;
 import sv.edu.ufg.model.FormaFactura;
 import sv.edu.ufg.model.FormaPago;
@@ -59,7 +60,7 @@ public class FacturacionController implements Serializable{
   			FormaFactura formaFactura = new FormaFactura(); formaFactura.setMonto(new BigDecimal(0));
   			formaFactura.setFactura(factura);
   			formaFactura.setFormaPago(formaService.find(factura.getFormaId()));
-  			factura.setCita(citaService.find(factura.getCitaId()));
+  			factura.setCita((Cita)citaService.find(factura.getCitaId()));
   			
   			
   			facturaService.create(factura);
