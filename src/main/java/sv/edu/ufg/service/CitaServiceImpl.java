@@ -16,28 +16,44 @@ public class CitaServiceImpl implements CitaService{
 	
 	@Autowired CitaDao citaDao;
 	
-	public void create(Cita r) {
-		citaDao.create(r);
-	}
+//	public void create(Cita r) {
+//		citaDao.create(r);
+//	}
+//
+//	public void update(Cita r) {
+//		citaDao.update(r);
+//	}
+//
+//	public void delete(Cita r) {
+//		citaDao.delete(r);
+//	}
+//
+//	public Cita find(int id) {
+//		return citaDao.find(id);
+//	}
+//
+//	public List<Cita> findAll() {
+//		return citaDao.findAll();
+//	}
 
-	public void update(Cita r) {
-		citaDao.update(r);
-	}
+    public void create(Object r) {
+        citaDao.create(r);
+    }
 
-	public void delete(Cita r) {
-		citaDao.delete(r);
-	}
+    public void update(Object r) {
+        citaDao.update(r);
+    }
 
-	public Cita find(int id) {
-		return citaDao.find(id);
-	}
+    public void delete(Object r) {
+        citaDao.delete(r);
+    }
 
-	public List<Cita> findAll() {
-		return citaDao.findAll();
-	}
+    public List<Object> findAll() {
+        return citaDao.findAll();
+    }
 
-	public List<Cita> findByEstado() {
-		return citaDao.findByEstado();
-	}
+    public Object find(int id) {
+        return citaDao.find(id);
+    }
 
 }
