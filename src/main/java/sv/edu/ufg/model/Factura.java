@@ -21,8 +21,6 @@ public class Factura implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="FACTURA_ID_GENERATOR")
 	private long id;
 
-	private BigDecimal cita;
-
 	private String credito;
 
 	private BigDecimal cuotas;
@@ -35,6 +33,11 @@ public class Factura implements Serializable {
 	//bi-directional many-to-one association to DetalleFactua
 	@OneToMany(mappedBy="factura")
 	private List<DetalleFactua> detalleFactuas;
+
+	//bi-directional many-to-one association to Cita
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CITA")
+	private Cita cita;
 
 	//bi-directional many-to-one association to FormaFactura
 	@OneToMany(mappedBy="factura")
@@ -57,14 +60,6 @@ public class Factura implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public BigDecimal getCita() {
-		return this.cita;
-	}
-
-	public void setCita(BigDecimal cita) {
-		this.cita = cita;
 	}
 
 	public String getCredito() {
@@ -119,6 +114,14 @@ public class Factura implements Serializable {
 		detalleFactua.setFactura(null);
 
 		return detalleFactua;
+	}
+
+	public Cita getCita() {
+		return this.cita;
+	}
+
+	public void setCita(Cita citaBean) {
+		this.cita = citaBean;
 	}
 
 	public List<FormaFactura> getFormaFacturas() {
