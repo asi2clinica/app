@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#formPagoDlg">f</button>
+
 
 <!-- Modal -->
 <div id="formPagoDlg" class="modal fade" role="dialog">

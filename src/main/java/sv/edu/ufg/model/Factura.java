@@ -209,4 +209,42 @@ public class Factura implements Serializable {
 		this.cliente = cliente;
 	}
 
+	
+	transient String formaString;
+	transient int formaId;
+	
+	transient String citaString;
+	transient int 	citaId;
+
+	public String getFormaString() {
+		return formaString;
+	}
+
+	public void setFormaString(String formaString) {
+		this.formaString = formaString;
+	}
+
+	public int getFormaId() {
+		return formaId;
+	}
+
+	public void setFormaId(int formaId) {
+		this.formaId = formaId;
+	}
+
+	public String getCitaString() {
+		return citaString;
+	}
+
+	public void setCitaString(String citaString) {
+		this.citaString = citaString;
+	}
+
+	public int getCitaId() {
+		return citaId;
+	}
+
+	public void setCitaId(int citaId) {
+		this.citaId = citaId;
+	}
 }
